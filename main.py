@@ -4,7 +4,7 @@ from pymongo import MongoClient
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": ["https://senac-aromaessence.netlify.app"]}})  
 
 # Configuração do MongoDB
 client = MongoClient('mongodb+srv://recinproj:NRdhqU14UA14vJF5@cluster0.r8fkm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
