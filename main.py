@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from pymongo import MongoClient
 import os
 
@@ -12,6 +12,7 @@ db = client['aroma_essence']
 agendamentos_collection = db.agendamentoAroma
 
 @app.route("/submit", methods=["POST"])
+@cross_origin()
 def submit_form():
     data = request.json
     if data:
